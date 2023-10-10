@@ -9,6 +9,11 @@ Route::POST('/login',[AuthController::class, 'login']);
 
 
 Route::middleware(['auth:sanctum'])->group(function(){
+
+    Route::get('/checkingAuthenticated', function(){
+        return response()->json(['message' =>'You are in', 'status'=>200], 200);
+    });
+
     Route::post('/logout',[AuthController::class, 'logout']);
 });
 
